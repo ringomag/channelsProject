@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>Chat Rooms</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper teal">
+          <a href="#" class="brand-logo center"><i class="material-icons">chat</i>Simple chat</a>
+          
+        </div>
+      </nav>
+    <div class="container">
+        <h4 style="color:#59BCAD;">Please Enter the Username and Room name?</h4><br>
+        <input id="userName" type="text" class="form-control" placeholder="Username"><br>
+        <input id="room-name-input" type="text" placeholder="Room name" ><br><br>
+        <button id="room-name-submit" class="btn waves-effect waves-light" type="button" value="Enter" name="action">Enter</button>
+        
+    </div>
+
+    <script>
+        document.querySelector('#room-name-input').focus();
+        document.querySelector('#room-name-input').onkeyup = function(e) {
+            if (e.keyCode === 13) {  // enter, return
+                document.querySelector('#room-name-submit').click();
+            }
+        };
+
+        document.querySelector('#room-name-submit').onclick = function(e) {
+            var roomName = document.querySelector('#room-name-input').value;
+            var userName = document.querySelector('#userName').value;
+            window.location.replace(roomName  + '/?username=' + userName);
+        };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+</html>
